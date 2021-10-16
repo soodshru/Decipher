@@ -22,17 +22,16 @@ def get_speech():
 
     return "hi"
 
-@app.route("/speech2text", methods = ['GET', "POST"])
+@app.route("/speechtotext", methods = ['GET', "POST"])
 def get_text():
     if request.method == 'POST':
         try:
-            data = request.files['file']
-            if data.filename != '':
-                data.save(data.filename)
-            output = speech2text.gen_text(data.filename)
-            return jsonify(
-                text=output,
-            )
+            # data = request.files['file']
+            # if data.filename != '':
+            #     data.save(data.filename)
+            output = speech2text.gen_text("/Users/josephwang/Code/HackTheValley/f2bjrop1.0.wav")
+            return output
         except FileNotFoundError:
             abort(404)
+            
     return "hi"

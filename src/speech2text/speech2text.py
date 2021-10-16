@@ -4,7 +4,7 @@ import os
 from google.cloud import speech
 
 def gen_text(wav_path):
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/path/to/text-to-speech-329203-c2a0cf1d09e2.json"
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/Users/josephwang/Code/HackTheValley/src/speech2text/text-to-speech-329203-c2a0cf1d09e2.json"
 
     # Instantiates a client
     client = speech.SpeechClient()
