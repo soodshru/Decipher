@@ -12,7 +12,7 @@ def hello():
 def get_speech():
     if request.method == 'POST':
         try:
-            filename = "output.mp3"
+            filename = "output.wav"
             output_path = "output"
             input = request.form.get("input")
             text2speech.gen_speech(input, f"{output_path}/{filename}")
