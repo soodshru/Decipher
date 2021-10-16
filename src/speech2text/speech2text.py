@@ -27,5 +27,6 @@ def gen_text(wav_path):
         audio=audio_wav
     )
 
-    print(response.results[0].alternatives[0].transcript)
-    return response.results[0].alternatives[0].transcript
+    result = response.results[0].alternatives[0].transcript
+    print(result)
+    return result
