@@ -1,5 +1,7 @@
 from flask import Flask, send_from_directory,abort, request
+from flask.json import jsonify
 from src.text2speech import text2speech
+from src.speech2text import speech2text
 app = Flask(__name__)
 
 @app.route("/")
@@ -7,7 +9,7 @@ def hello():
     return "hello"
 
 @app.route("/texttospeech", methods = ['GET', "POST"])
-def get_image():
+def get_speech():
     if request.method == 'POST':
         try:
             filename = "output.mp3"
@@ -21,11 +23,16 @@ def get_image():
     return "hi"
 
 @app.route("/speech2text", methods = ['GET', "POST"])
-def get_image():
-    # if request.method == 'POST':
-        # try:
-            # implement here
-        # except FileNotFoundError:
-        #     abort(404)
-
+def get_text():
+    if request.method == 'POST':
+        try:
+            data = request.files['file']
+            if data.filename != '':
+                data.save(data.filename)
+            output = speech2text.gen_text(data.filename)
+            return jsonify(
+                text=output,
+            )
+        except FileNotFoundError:
+            abort(404)
     return "hi"
