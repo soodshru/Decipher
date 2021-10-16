@@ -2,7 +2,6 @@ import os
 
 # Imports the Google Cloud client library
 from google.cloud import speech
-from google.cloud.speech_v1.types.cloud_speech import SpeechRecognitionAlternative
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/path/to/json'
 
