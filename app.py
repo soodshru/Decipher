@@ -26,10 +26,10 @@ def get_speech():
 def get_text():
     if request.method == 'POST':
         try:
-            # data = request.files['file']
-            # if data.filename != '':
-            #     data.save(data.filename)
-            output = speech2text.gen_text("/Users/josephwang/Code/HackTheValley/f2bjrop1.0.wav")
+            data = request.files['file']
+            if data.filename != '':
+                data.save(data.filename)
+            output = speech2text.gen_text(data.filename)
             return output
         except FileNotFoundError:
             abort(404)
