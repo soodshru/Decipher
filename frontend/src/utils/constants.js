@@ -1,0 +1,15 @@
+export const LANGUAGES = {
+    English: 'en-US',
+    Chinese: 'zh-CN',
+    Arabic: 'ar-SA',
+    Russian	: 'ru-RU',
+    French	: 'fr-FR',
+    Spanish	: 'es-ES',
+    Portuguese : 'pt-PT',
+    Italian	: 'it-IT',
+    Japanese : 'ja-JP',
+    Korean	: 'ko-KR',
+    Greek	: 'el-GR',
+    Dutch	: 'nl-NL',
+    Hindi	: 'hi-IN',
+}

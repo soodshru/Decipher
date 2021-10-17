@@ -1,6 +1,5 @@
 import React from 'react';
 import { ReactMic } from 'react-mic';
-import { sendAudio } from '../api/Api';
 
 import './Record.scss'
  
@@ -42,7 +41,7 @@ export class Record extends React.Component {
   onStop(recordedBlob) {
     console.log('recordedBlob is: ', recordedBlob);
     this.setState({file: recordedBlob})
-    sendAudio(recordedBlob.blob, this.setLoading)
+    this.props.sendAPIRequest(recordedBlob.blob, this.setLoading)
   }
  
   render() {

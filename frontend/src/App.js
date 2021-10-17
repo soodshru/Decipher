@@ -1,12 +1,10 @@
 import './App.css';
-import { Record } from './components/Record';
-import LanguageSelect from './components/LanguageSelect';
+import Overview from './pages/Overview';
 
 function App() {
   return (
     <div className="App">
-      <LanguageSelect/>
-      <Record/>
+      <Overview/>
     </div>
   );
 }
