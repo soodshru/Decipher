@@ -6,8 +6,8 @@ export const sendAudio = async (file, setLoading, fromLang, toLang) => {
     setLoading(true)
     let data = new FormData();
     data.append('file', file, file.name);
-    data.append('fromLang', fromLang)
-    data.append('toLang', toLang)
+    data.append('fromLang', fromLang[1])
+    data.append('toLang', toLang[1])
 
     const config = {
         headers: { 'content-type': 'multipart/form-data' }
