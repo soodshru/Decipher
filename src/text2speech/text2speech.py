@@ -1,9 +1,12 @@
 import os
 from google.cloud import texttospeech
 
-def gen_speech(input, outputPath):
 
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/Users/josephwang/Code/HackTheValley/src/text2speech/text-to-speech-329203-c963566956db.json"
+def gen_speech(input, outputPath, toLang):
+
+    os.environ[
+        "GOOGLE_APPLICATION_CREDENTIALS"
+    ] = "/Users/josephwang/Code/HackTheValley/src/text2speech/text-to-speech-329203-c963566956db.json"
     # Instantiates a client
     client = texttospeech.TextToSpeechClient()
 
@@ -13,13 +16,12 @@ def gen_speech(input, outputPath):
     # Build the voice request, select the language code ("en-US") and the ssml
     # voice gender ("neutral")
     voice = texttospeech.VoiceSelectionParams(
-        language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
+        language_code=toLang, ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL
     )
 
     # Select the type of audio file you want returned
     audio_config = texttospeech.AudioConfig(
-        audio_encoding=texttospeech.AudioEncoding.LINEAR16,
-        sample_rate_hertz = 48000
+        audio_encoding=texttospeech.AudioEncoding.LINEAR16, sample_rate_hertz=48000
     )
 
     # Perform the text-to-speech request on the text input with the selected
@@ -32,4 +34,4 @@ def gen_speech(input, outputPath):
     with open(outputPath, "wb") as out:
         # Write the response to the output file.
         out.write(response.audio_content)
-        print(f'Audio content written to file {outputPath}')
+        print(f"Audio content written to file {outputPath}")
