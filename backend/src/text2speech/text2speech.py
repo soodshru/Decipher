@@ -6,7 +6,7 @@ def gen_speech(input, outputPath, toLang):
 
     os.environ[
         "GOOGLE_APPLICATION_CREDENTIALS"
-    ] = "/Users/josephwang/Code/HackTheValley/src/text2speech/text-to-speech-329203-c963566956db.json"
+    ] = os.path.join(os.getcwd(), "src", "text2speech", "text-to-speech-329203-c963566956db.json")
     # Instantiates a client
     client = texttospeech.TextToSpeechClient()
 

@@ -7,7 +7,7 @@ from google.cloud import speech
 def gen_text(wav_path, fromLang):
     os.environ[
         "GOOGLE_APPLICATION_CREDENTIALS"
-    ] = "/Users/josephwang/Code/HackTheValley/src/speech2text/text-to-speech-329203-c2a0cf1d09e2.json"
+    ] = os.path.join(os.getcwd(), "src", "speech2text", "text-to-speech-329203-c2a0cf1d09e2.json")
 
     # Instantiates a client
     client = speech.SpeechClient()
@@ -20,7 +20,7 @@ def gen_text(wav_path, fromLang):
 
     # Configure media files output
     config_wav = speech.RecognitionConfig(
-        enable_automatic_punctuation=True, language_code=fromLang
+        enable_automatic_punctuation=True, language_code=fromLang, audio_channel_count=2
     )
 
     # Transcribing RecognitionAudio object
